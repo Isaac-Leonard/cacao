@@ -27,11 +27,9 @@ impl AppDelegate for TodosApp {
     }
 }
 
-impl Dispatcher for TodosApp {
-    type Message = Message;
-
+impl Dispatcher<Message> for TodosApp {
     /// Handles a message that came over on the main (UI) thread.
-    fn on_ui_message(&self, message: Self::Message) {
+    fn on_ui_message(&self, message: Message) {
         self.window_manager.on_ui_message(message);
     }
 }

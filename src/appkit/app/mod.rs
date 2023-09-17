@@ -185,7 +185,7 @@ where
 impl<T, M> App<T, M>
 where
     M: Send + Sync + 'static,
-    T: AppDelegate + Dispatcher<Message = M>
+    T: AppDelegate + Dispatcher<M>
 {
     /// Dispatches a message by grabbing the `sharedApplication`, getting ahold of the delegate,
     /// and passing back through there.

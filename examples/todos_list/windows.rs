@@ -111,9 +111,7 @@ impl WindowManager {
     }
 }
 
-impl Dispatcher for WindowManager {
-    type Message = Message;
-
+impl Dispatcher<Message> for WindowManager {
     /// Some jank message passing, it's fine for now.
     fn on_ui_message(&self, message: Message) {
         match message {

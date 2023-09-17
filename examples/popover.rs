@@ -153,11 +153,9 @@ pub fn dispatch_ui(message: Msg) {
     App::<BasicApp, Msg>::dispatch_main(message);
 }
 
-impl Dispatcher for BasicApp {
-    type Message = Msg;
-
+impl Dispatcher<Msg> for BasicApp {
     // Handles a message that came over on the main (UI) thread.
-    fn on_ui_message(&self, message: Self::Message) {
+    fn on_ui_message(&self, message: Msg) {
         if let Some(d) = &self.window.window.delegate {
             d.on_message(message)
         }

@@ -67,10 +67,8 @@ impl AppDelegate for BasicApp {
     }
 }
 
-impl Dispatcher for BasicApp {
-    type Message = Action;
-
-    fn on_ui_message(&self, message: Self::Message) {
+impl Dispatcher<Action> for BasicApp {
+    fn on_ui_message(&self, message: Action) {
         let window = self.window.delegate.as_ref().unwrap();
         let webview = &window.content;
 

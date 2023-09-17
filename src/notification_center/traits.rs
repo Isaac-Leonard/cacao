@@ -10,14 +10,12 @@
 ///
 /// This will asynchronously loop a message back to the "top" of your app, via your app delegate.
 /// You can process it from there.
-pub trait Dispatcher {
-    /// The type of Message you're sending. This should be lightweight and thread safe.
-    type Message: Send + Sync;
-
+/// T is the type of Message you're sending. This should be lightweight and thread safe.
+pub trait Dispatcher<T: Send + Sync> {
     /// Called when a message is looped back on the _main_ queue. This is where all UI work should
     /// be happening.
-    fn on_ui_message(&self, _message: Self::Message) {}
+    fn on_ui_message(&self, _message: T) {}
 
     /// Called when a message is looped back on a background queue.
-    fn on_background_message(&self, _message: Self::Message) {}
+    fn on_background_message(&self, _message: T) {}
 }

@@ -54,10 +54,8 @@ impl AppDelegate for CalculatorApp {
     }
 }
 
-impl Dispatcher for CalculatorApp {
-    type Message = String;
-
-    fn on_ui_message(&self, message: Self::Message) {
+impl Dispatcher<String> for CalculatorApp {
+    fn on_ui_message(&self, message: String) {
         if let Some(delegate) = &self.content.delegate {
             delegate.render_update(message);
         }
