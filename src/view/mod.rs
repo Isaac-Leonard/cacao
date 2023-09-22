@@ -236,7 +236,7 @@ impl View {
 
 impl<T> View<T>
 where
-    T: ViewDelegate + 'static
+    T: ViewDelegate
 {
     /// Initializes a new View with a given `ViewDelegate`. This enables you to respond to events
     /// and customize the view as a module, similar to class-based systems.
